@@ -1,0 +1,40 @@
+<div class="mt-5">
+  <h1 class="text-center">Agenda de personas</h1>
+</div>
+
+
+<div class="container mt-5">
+  <div >
+    <button class="btn btn-primary" (click)="reenviar()" [routerLink]="['/add']" routerLink="/add">Agregar </button>
+  </div>
+  
+  
+  <div class="card mt-3">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Cedula</th>
+          <th scope="col">Genero</th>
+          <th scope="col">Edad</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr *ngFor="let person of people; index as i">
+          <th > <span class="badge bg-dark">{{ i+1 }}</span> </th>
+          <td>{{ person.nombre }}</td>
+          <td>{{ person.apellido }}</td>
+          <td>{{ person.cedula }}</td>
+          <td>{{ person.genero }}</td>
+          <td>{{ person.edad }}</td>
+          <td><button class="btn btn-warning" (click)="editar(person.id)">Editar</button></td>
+          <td><button class="btn btn-danger"  (click)="borrar(person.id)">Eliminar</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
